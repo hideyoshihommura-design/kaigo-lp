@@ -24,10 +24,10 @@ export function Testimonials() {
                 className="gradient-border-card p-6 sm:p-8 flex flex-col"
               >
                 <Quote className="w-8 h-8 text-primary/30 mb-4" />
-                <h3 className="text-base font-bold text-text mb-3 leading-snug">
+                <h3 className="text-sm sm:text-base font-bold text-text mb-3 leading-[1.6]">
                   {testimonial.quote}
                 </h3>
-                <p className="text-sm text-text-light leading-relaxed flex-1 mb-6">
+                <p className="text-[0.8rem] sm:text-sm text-text-light leading-[1.8] flex-1 mb-6">
                   {testimonial.detail}
                 </p>
                 <div className="flex items-center gap-3 pt-4 border-t border-gray-100">

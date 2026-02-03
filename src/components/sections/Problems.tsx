@@ -28,10 +28,10 @@ export function Problems() {
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-5">
                   <Icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-lg font-bold text-text mb-3">
+                <h3 className="text-base sm:text-lg font-bold text-text mb-3">
                   {problem.title}
                 </h3>
-                <p className="text-sm text-text-light leading-relaxed">
+                <p className="text-[0.8rem] sm:text-sm text-text-light leading-[1.8]">
                   {problem.description}
                 </p>
               </motion.div>
@@ -45,7 +45,7 @@ export function Problems() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <p className="text-base sm:text-lg text-text font-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-lg text-text font-medium max-w-2xl mx-auto leading-[1.8]">
             {problemsData.transition}
           </p>
         </motion.div>

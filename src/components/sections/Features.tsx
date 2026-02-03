@@ -35,10 +35,10 @@ export function Features() {
                       <Icon className="w-7 h-7 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg font-bold text-text mb-2">
+                      <h3 className="text-sm sm:text-lg font-bold text-text mb-2">
                         {feature.title}
                       </h3>
-                      <p className="text-sm text-text-light leading-relaxed">
+                      <p className="text-[0.8rem] sm:text-sm text-text-light leading-[1.8]">
                         {feature.description}
                       </p>
                     </div>

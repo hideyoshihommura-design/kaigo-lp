@@ -19,7 +19,6 @@ export function Hero() {
       </div>
 
       <div className="container-default relative z-10 py-16 sm:py-20">
-        {/* Mobile: center, Desktop: right-aligned */}
         <div className="max-w-2xl mx-auto sm:ml-auto sm:mr-0 text-center sm:text-right">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -35,24 +34,43 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-snug sm:leading-tight mb-4 sm:mb-6"
+            className="text-[1.3rem] sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.6] sm:leading-tight mb-4 sm:mb-6"
             style={{ textShadow: "2px 2px 8px rgba(0,0,0,0.3)" }}
           >
-            「ホリエモンAI学校 介護校」は、
-            <br className="hidden sm:block" />
-            <span className="text-yellow-300">介護業界に特化</span>した
-            <br className="hidden sm:block" />
-            AI活用スクールです。
+            {/* スマホ用: 意味のまとまりで改行 */}
+            <span className="sm:hidden">
+              「ホリエモンAI学校
+              <br />
+              介護校」は、
+              <br />
+              <span className="text-yellow-300">介護業界に特化</span>した
+              <br />
+              AI活用スクールです。
+            </span>
+            {/* PC用 */}
+            <span className="hidden sm:inline">
+              「ホリエモンAI学校 介護校」は、
+              <br />
+              <span className="text-yellow-300">介護業界に特化</span>した
+              <br />
+              AI活用スクールです。
+            </span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm sm:text-lg text-white/90 mb-6 sm:mb-8 leading-relaxed"
+            className="text-[0.8rem] sm:text-lg text-white/90 mb-6 sm:mb-8 leading-[1.8]"
             style={{ textShadow: "1px 1px 4px rgba(0,0,0,0.3)" }}
           >
-            {heroData.subheadline}
+            プログラミング不要の実践型AIスクール。
+            <br className="sm:hidden" />
+            今ある業務を、今いるスタッフで、
+            <br className="sm:hidden" />
+            もっと速く、もっと楽にする
+            <br className="sm:hidden" />
+            方法を学べます。
           </motion.p>
 
           <motion.div
@@ -61,18 +79,18 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col gap-3 sm:flex-row sm:gap-4 sm:justify-end"
           >
-            <a href={heroData.ctaLinks.download} className="btn-primary !px-6 sm:!px-14 !text-sm sm:!text-base">
-              {heroData.primaryCta}
+            <a href={heroData.ctaLinks.download} className="btn-primary">
+              資料を無料ダウンロード
               <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </a>
             <a
               href={heroData.ctaLinks.line}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-line !px-6 sm:!px-10 !text-sm sm:!text-base"
+              className="btn-line"
             >
               <MessageCircle className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
-              {heroData.secondaryCta}
+              LINEで相談する
             </a>
           </motion.div>
         </div>

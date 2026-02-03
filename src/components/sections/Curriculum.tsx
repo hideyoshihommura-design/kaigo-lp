@@ -41,10 +41,10 @@ export function Curriculum() {
 
               {/* Content */}
               <div className="bg-white rounded-card p-4 sm:p-5 shadow-card flex-1">
-                <h3 className="text-base sm:text-lg font-bold text-text mb-1">
+                <h3 className="text-sm sm:text-lg font-bold text-text mb-1">
                   {step.title}
                 </h3>
-                <p className="text-sm text-text-light">{step.description}</p>
+                <p className="text-[0.8rem] sm:text-sm text-text-light leading-[1.6]">{step.description}</p>
               </div>
             </motion.div>
           ))}

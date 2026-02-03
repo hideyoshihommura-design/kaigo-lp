@@ -39,13 +39,13 @@ export function UseCases() {
                     {useCase.role}
                   </span>
 
-                  <h3 className="text-lg font-bold text-text mb-4">
+                  <h3 className="text-base sm:text-lg font-bold text-text mb-4">
                     {useCase.headline}
                   </h3>
 
                   <ul className="space-y-2.5 mb-5">
                     {useCase.benefits.map((benefit, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-text-light">
+                      <li key={j} className="flex items-start gap-2 text-[0.8rem] sm:text-sm text-text-light leading-[1.8]">
                         <Clock className="w-4 h-4 text-accent-pink flex-shrink-0 mt-0.5" />
                         <span>
                           {benefit.text}

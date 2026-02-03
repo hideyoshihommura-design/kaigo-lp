@@ -28,7 +28,7 @@ export function FAQ() {
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between p-5 sm:p-6 text-left"
               >
-                <span className="text-sm sm:text-base font-bold text-text pr-4">
+                <span className="text-[0.8rem] sm:text-base font-bold text-text pr-4 leading-[1.6]">
                   Q. {item.question}
                 </span>
                 <ChevronDown
