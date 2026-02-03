@@ -90,10 +90,10 @@ export function Pricing() {
                 <div className="text-center">
                   <a
                     href="#download"
-                    className={plan.recommended ? "btn-primary w-full" : "btn-outline w-full"}
+                    className={`${plan.recommended ? "btn-primary" : "btn-outline"} w-full !whitespace-normal text-center !text-xs sm:!text-sm`}
                   >
                     {plan.cta}
-                    <ArrowRight className="ml-2 w-4 h-4" />
+                    <ArrowRight className="ml-2 w-4 h-4 flex-shrink-0" />
                   </a>
                 </div>
               </motion.div>

@@ -29,7 +29,7 @@ export function Results() {
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <TrendingDown className="w-5 h-5 text-primary" />
                 </div>
-                <div className="text-3xl sm:text-4xl font-bold gradient-text mb-1">
+                <div className="text-2xl sm:text-4xl font-bold gradient-text mb-1">
                   {metric.value}
                 </div>
                 <div className="text-sm font-bold text-accent-pink mb-2">

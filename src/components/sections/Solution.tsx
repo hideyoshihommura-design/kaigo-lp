@@ -53,9 +53,9 @@ export function Solution() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <a href="#download" className="btn-primary">
+              <a href="#download" className="btn-primary !whitespace-normal">
                 無料で資料をダウンロードする
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
               </a>
             </motion.div>
           </div>

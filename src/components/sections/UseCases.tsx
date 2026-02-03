@@ -78,7 +78,7 @@ export function UseCases() {
         </div>
 
         <div className="text-center mt-10">
-          <a href="#download" className="btn-primary">
+          <a href="#download" className="btn-primary !whitespace-normal">
             職種別の活用事例を資料で見る
           </a>
         </div>

@@ -49,7 +49,7 @@ export function Subsidy() {
             >
               助成金適用で最大75%OFF
             </span>
-            <p className="text-3xl sm:text-4xl font-bold gradient-text mb-1">
+            <p className="text-2xl sm:text-4xl font-bold gradient-text mb-1">
               {subsidyData.comparison.withSubsidy.total}
             </p>
             <p className="text-sm text-text-muted mt-1">
@@ -69,9 +69,9 @@ export function Subsidy() {
           </p>
 
           <div className="text-center mt-8">
-            <a href="#download" className="btn-primary">
+            <a href="#download" className="btn-primary !whitespace-normal">
               助成金の詳細を資料で確認する
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
             </a>
           </div>
         </motion.div>
