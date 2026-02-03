@@ -7,56 +7,60 @@ import { SectionTitle } from "@/components/shared/SectionTitle";
 
 export function Solution() {
   return (
-    <section className="section-padding bg-gradient-light">
-      <div className="container-narrow">
-        <SectionTitle title={solutionData.sectionTitle} />
+    <>
+      {/* Gradient divider */}
+      <div className="gradient-line" />
 
-        <div className="max-w-2xl mx-auto">
-          {solutionData.description.map((text, i) => (
-            <motion.p
-              key={i}
+      <section className="section-padding bg-bg-gray">
+        <div className="container-article">
+          <SectionTitle title={solutionData.sectionTitle} />
+
+          <div className="max-w-2xl mx-auto text-center">
+            {solutionData.description.map((text, i) => (
+              <motion.p
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="text-base text-text leading-[1.8] mb-4"
+              >
+                {text}
+              </motion.p>
+            ))}
+
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="text-base sm:text-lg text-foreground/80 leading-relaxed mb-4"
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex flex-wrap gap-4 mt-8 mb-10 justify-center"
             >
-              {text}
-            </motion.p>
-          ))}
+              {solutionData.features.map((feature, i) => (
+                <span
+                  key={i}
+                  className="inline-flex items-center gap-2 bg-white px-5 py-2.5 rounded-btn text-sm font-medium text-text shadow-card"
+                >
+                  <Check className="w-4 h-4 text-primary" />
+                  {feature}
+                </span>
+              ))}
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-wrap gap-3 mt-8 mb-10 justify-center"
-          >
-            {solutionData.features.map((feature, i) => (
-              <span
-                key={i}
-                className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full text-sm font-medium text-primary shadow-sm"
-              >
-                <Check className="w-4 h-4" />
-                {feature}
-              </span>
-            ))}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-center"
-          >
-            <a href="#download" className="btn-primary group">
-              無料で資料をダウンロードする
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <a href="#download" className="btn-primary">
+                無料で資料をダウンロードする
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

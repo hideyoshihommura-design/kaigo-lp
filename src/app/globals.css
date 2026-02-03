@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap");
 
 html {
   scroll-behavior: smooth;
@@ -14,65 +14,171 @@ body {
 }
 
 body {
-  color: #1a1a2e;
+  color: #312624;
   background: #fdfdfd;
-  font-family: "Noto Sans JP", "Inter", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* ===== Gradient Utilities ===== */
+.gradient-line {
+  height: 0.5rem;
+  background: linear-gradient(91deg, #D84D6E -8.2%, #0D83F5 115.17%);
+}
+
+.gradient-line-thin {
+  height: 2px;
+  background: linear-gradient(91deg, #D84D6E -8.2%, #0D83F5 115.17%);
+}
+
+.gradient-text {
+  background: linear-gradient(91deg, #D84D6E -8.2%, #0D83F5 115.17%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-underline {
+  background-image: linear-gradient(90deg, #D84D6E 0%, #0D83F5 100%);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 1px;
+  padding-bottom: 2px;
+}
+
+/* ===== Gradient Border Card ===== */
+.gradient-border-card {
+  position: relative;
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.10);
+}
+
+.gradient-border-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  padding: 2px;
+  background: linear-gradient(91deg, #D84D6E -8.2%, #0D83F5 115.17%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 @layer components {
   .container-default {
-    @apply max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-container mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  .container-narrow {
-    @apply max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8;
+  .container-article {
+    @apply max-w-article mx-auto px-4 sm:px-6 lg:px-8;
   }
 
   .section-padding {
     @apply py-16 md:py-24;
   }
 
+  /* Primary Button: gradient pink→blue */
   .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-4 bg-gradient-accent text-white font-bold rounded-3xl
-    shadow-glow-accent hover:shadow-glow-lg transform hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 56px;
+    border-radius: 28px;
+    background: linear-gradient(91deg, #D84D6E -8.2%, #0D83F5 115.17%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.25s ease;
+    box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.10);
   }
 
-  .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-4 bg-white text-foreground font-bold rounded-3xl
-    border-2 border-primary/20 hover:border-primary hover:text-primary transition-all duration-300 text-sm sm:text-base;
+  .btn-primary:hover {
+    box-shadow: 6px 6px 30px 0 rgba(0, 0, 0, 0.18);
+    transform: translateY(-2px);
   }
 
-  .btn-cta {
-    @apply inline-flex items-center justify-center px-10 py-5 bg-gradient-accent text-white font-bold rounded-3xl
-    shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 text-base sm:text-lg tracking-wide;
+  /* Outline Button with gradient border */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 56px;
+    border-radius: 28px;
+    background: #fff;
+    color: #312624;
+    font-weight: 700;
+    font-size: 1rem;
+    position: relative;
+    transition: all 0.25s ease;
+    box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.10);
   }
 
+  .btn-outline::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 28px;
+    padding: 2px;
+    background: linear-gradient(91deg, #D84D6E -8.2%, #0D83F5 115.17%);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .btn-outline:hover {
+    box-shadow: 6px 6px 30px 0 rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+
+  /* LINE Button */
   .btn-line {
-    @apply inline-flex items-center justify-center px-8 py-4 bg-[#06C755] text-white font-bold rounded-3xl
-    shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 40px;
+    border-radius: 28px;
+    background: #06C755;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.25s ease;
+    box-shadow: 4px 4px 20px 0 rgba(6, 199, 85, 0.2);
   }
 
-  .card-hover {
-    @apply bg-white rounded-2xl shadow-md hover:shadow-glow-lg transform hover:-translate-y-1 transition-all duration-300;
+  .btn-line:hover {
+    box-shadow: 6px 6px 30px 0 rgba(6, 199, 85, 0.3);
+    transform: translateY(-2px);
   }
 
-  .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-primary;
+  /* Section heading badge (purple bg) */
+  .section-heading {
+    display: inline-block;
+    background-color: #6462b2;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding: 0.75em 1em;
+    border-radius: 8px;
+    line-height: 1.4;
   }
 
-  .gradient-border {
-    @apply relative;
-    background: linear-gradient(#fdfdfd, #fdfdfd) padding-box,
-      linear-gradient(135deg, #6462b2, #0d83f5) border-box;
-    border: 2px solid transparent;
-    border-radius: 16px;
+  @media (min-width: 640px) {
+    .section-heading {
+      font-size: 1.5rem;
+    }
   }
 }
 
-body {
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
+/* iOS zoom prevention */
 @media screen and (max-width: 640px) {
   input[type="text"],
   input[type="email"],
@@ -80,6 +186,10 @@ body {
   select {
     font-size: 16px;
   }
+}
+
+body {
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 ::selection {

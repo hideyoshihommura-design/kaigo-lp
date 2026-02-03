@@ -5,36 +5,32 @@ import { motion } from "framer-motion";
 interface SectionTitleProps {
   title: string;
   subtitle?: string;
-  light?: boolean;
 }
 
-export function SectionTitle({ title, subtitle, light }: SectionTitleProps) {
+export function SectionTitle({ title, subtitle }: SectionTitleProps) {
   return (
     <div className="text-center mb-10 sm:mb-14">
-      <motion.h2
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight ${
-          light ? "text-white" : "text-foreground"
-        }`}
       >
-        {title}
-      </motion.h2>
+        <h2 className="section-heading">{title}</h2>
+      </motion.div>
       {subtitle && (
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className={`text-sm sm:text-lg max-w-2xl mx-auto ${
-            light ? "text-white/70" : "text-muted"
-          }`}
+          className="text-text-light text-sm sm:text-base mt-4 max-w-2xl mx-auto"
         >
           {subtitle}
         </motion.p>
       )}
+      {/* Gradient line under heading */}
+      <div className="gradient-line-thin w-20 mx-auto mt-5" />
     </div>
   );
 }

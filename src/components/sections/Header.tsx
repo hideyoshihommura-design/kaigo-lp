@@ -1,35 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { headerData } from "@/data/content";
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md"
-          : "bg-transparent"
-      }`}
-    >
+    <header className="sticky top-0 z-50 bg-bg border-b border-gray-100">
       <div className="container-default flex items-center justify-between h-16 sm:h-20">
-        <a
-          href="#"
-          className={`font-bold text-sm sm:text-lg transition-colors ${
-            isScrolled ? "text-foreground" : "text-white"
-          }`}
-        >
+        {/* Logo */}
+        <a href="#" className="font-bold text-sm sm:text-base text-text">
           {headerData.logo}
         </a>
 
@@ -39,14 +22,13 @@ export function Header() {
             <a
               key={item.label}
               href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                isScrolled ? "text-foreground" : "text-white/90"
-              }`}
+              className="text-sm text-text hover:text-primary transition-colors relative group"
             >
               {item.label}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300" />
             </a>
           ))}
-          <a href={headerData.cta.href} className="btn-primary text-sm py-2.5 px-6">
+          <a href={headerData.cta.href} className="btn-primary text-sm !py-2.5 !px-8">
             {headerData.cta.label}
           </a>
         </nav>
@@ -54,9 +36,7 @@ export function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileOpen(!isMobileOpen)}
-          className={`lg:hidden p-2 ${
-            isScrolled ? "text-foreground" : "text-white"
-          }`}
+          className="lg:hidden p-2 text-text"
           aria-label="メニュー"
         >
           {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -70,15 +50,15 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t border-border"
+            className="lg:hidden bg-white border-t border-gray-100"
           >
-            <nav className="container-default py-4 flex flex-col gap-3">
+            <nav className="container-default py-4 flex flex-col gap-1">
               {headerData.navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsMobileOpen(false)}
-                  className="text-foreground font-medium py-2 border-b border-border/50"
+                  className="text-text py-3 border-b border-gray-50 text-sm"
                 >
                   {item.label}
                 </a>
@@ -86,7 +66,7 @@ export function Header() {
               <a
                 href={headerData.cta.href}
                 onClick={() => setIsMobileOpen(false)}
-                className="btn-primary text-sm text-center mt-2"
+                className="btn-primary text-sm text-center mt-3"
               >
                 {headerData.cta.label}
               </a>

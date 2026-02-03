@@ -5,15 +5,11 @@ import { Users, ClipboardList, UserCog } from "lucide-react";
 import { problemsData } from "@/data/content";
 import { SectionTitle } from "@/components/shared/SectionTitle";
 
-const iconMap = {
-  Users,
-  ClipboardList,
-  UserCog,
-};
+const iconMap = { Users, ClipboardList, UserCog };
 
 export function Problems() {
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-bg">
       <div className="container-default">
         <SectionTitle title={problemsData.sectionTitle} />
 
@@ -26,16 +22,16 @@ export function Problems() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-border/50 hover:shadow-glow transition-all duration-300"
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+                className="gradient-border-card p-6 sm:p-8"
               >
-                <div className="w-14 h-14 rounded-2xl bg-accent-light flex items-center justify-center mb-5">
-                  <Icon className="w-7 h-7 text-accent" />
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-5">
+                  <Icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3">
+                <h3 className="text-lg font-bold text-text mb-3">
                   {problem.title}
                 </h3>
-                <p className="text-sm sm:text-base text-muted leading-relaxed">
+                <p className="text-sm text-text-light leading-relaxed">
                   {problem.description}
                 </p>
               </motion.div>
@@ -43,14 +39,16 @@ export function Problems() {
           })}
         </div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center text-base sm:text-lg text-foreground font-medium max-w-2xl mx-auto"
+          className="text-center"
         >
-          {problemsData.transition}
-        </motion.p>
+          <p className="text-base sm:text-lg text-text font-medium max-w-2xl mx-auto leading-relaxed">
+            {problemsData.transition}
+          </p>
+        </motion.div>
       </div>
     </section>
   );
